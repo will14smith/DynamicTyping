@@ -55,9 +55,10 @@ namespace DynamicTyping
             resolverType.AddInterfaceImplementation(typeof(IResolver));
 
             // ResolveResult Resolve(object instance, string field)
+            
             var resolveMethod = resolverType.DefineMethod(nameof(IResolver.Resolve), MethodAttributes.Public | MethodAttributes.Virtual, typeof(ResolveResult), new[] {typeof(object), typeof(string)});
             var resolveIL = resolveMethod.GetILGenerator();
-
+            
             // if(!(instance is targetType)) return Unresolved
             var unresolvedLabel = resolveIL.DefineLabel();
             resolveIL.Emit(OpCodes.Ldarg_1);

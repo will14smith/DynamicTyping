@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Serialization;
 using Utf8Json;
 
@@ -35,7 +36,12 @@ namespace DynamicTyping.Benchmark
                 _resolver.Resolve(_instance, "DecimalProp7"),
                 _resolver.Resolve(_instance, "StringProperty98"),
                 _resolver.Resolve(_instance, "NotAProperty"),
-            };        }
+            };
+        }
+        public IReadOnlyCollection<KeyValuePair<string, object>> Enumerate()
+        {
+            return _instance.Properties.ToList();
+        }
         
         private static void SetParents(Dict instance)
         {

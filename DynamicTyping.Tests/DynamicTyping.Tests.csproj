@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\DynamicTyping.Benchmark\DynamicTyping.Benchmark.csproj" />
       <ProjectReference Include="..\DynamicTyping\DynamicTyping.csproj" />
     </ItemGroup>
 
